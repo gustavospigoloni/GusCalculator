@@ -1,0 +1,70 @@
+/*formatting all elements, including before and after elements*/
+* {
+  box-sizing: border-box;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-weight: normal;
+  color: black;
+}
+
+/*background formatting*/
+body {
+  /*remove padding and margin so background fills the entire screen:*/
+  padding: 0;
+  margin: 0;
+  /*coloring left to right:*/
+  background: linear-gradient(to right, #00aaff, #00ff);
+}
+
+/* grid formatting*/
+.calculator-grid {
+  display: grid; /*grid layout*/
+  justify-content: center; /*centralize*/
+  align-content: center; /*all content centralized*/
+  min-height: 100vh;
+  grid-template-columns: repeat(4, 100px); /*4 columns 100pixels*/
+  grid-template-rows: minmax(120px, auto) repeat(5, 100px); /*5 rows 100pixels, minmax so input can be as large as it needs to be*/
+}
+
+/*button formatting*/
+.calculator-grid > button {
+  cursor: pointer;
+  font-size: 2rem;
+  border: 2px solid white;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.75); /*white with 75% transparency*/
+}
+
+/*button white when cursos is on top*/
+.calculator-grid > button:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+/*buttons 'C' and '=' take two columns*/
+.span-two {
+  grid-column: span 2;
+}
+
+/*output formatting*/
+.output {
+  grid-column: 1 / -1; /*fill entire row with output*/
+  background-color: rgba(0, 0, 0, 0.75); /*black with 75% transparency*/
+  display: flex; /*align items*/
+  align-items: flex-end; /*right side of box*/
+  justify-content: space-around; /*space between items*/
+  flex-direction: column; /*separate vertically*/
+  padding: 10px; /*distance between edges and items*/
+  word-wrap: break-word; /*if number is too large it breaks and goes to the next line*/
+  word-break: break-all;
+}
+
+/*formatting previous operand*/
+.output .prev-operand {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.5rem;
+}
+
+/*formatting current operand*/
+.output .curr-operand {
+  color: white;
+  font-size: 2.5rem;
+}
